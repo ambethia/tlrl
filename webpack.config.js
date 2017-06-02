@@ -50,7 +50,7 @@ const common = {
       test: /\.(png|jpe?g|gif|svg)$/,
       loader: 'file-loader'
     }, {
-      test: /\.(sass|s?css)$/,
+      test: /\.css$/,
       loaders: [
         'style-loader',
         'css-loader',
@@ -63,8 +63,7 @@ const common = {
               ]
             }
           }
-        },
-        'sass-loader'
+        }
       ]
     }]
   }
@@ -74,8 +73,7 @@ const development = {
   entry: {
     vendor: [
       'react-hot-loader/patch',
-      'webpack-dev-server/client?http://localhost:8080',
-      'webpack/hot/only-dev-server'
+      'webpack-dev-server/client?http://localhost:3000'
     ]
   },
   output: {
@@ -84,16 +82,16 @@ const development = {
   devServer: {
     historyApiFallback: true,
     hot: true,
-    port: 8080,
+    port: 3000,
     contentBase: BUILD_PATH,
     publicPath: '/',
     stats: { colors: true, chunks: false }
   },
-  devtool: 'eval',
+  devtool: 'eval-source-map',
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
-    new BrowserSyncPlugin({ proxy: 'http://localhost:8080/' }, { reload: false })
+    new webpack.NoEmitOnErrorsPlugin()
   ],
   module: {
     rules: [{
