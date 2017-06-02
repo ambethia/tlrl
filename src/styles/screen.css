@@ -1,5 +1,25 @@
 body {
   margin: 0;
-  font-size: 16px;
-  font-family: sans-serif;
+}
+
+#root {
+  min-height: 100%;
+  display: flex;
+}
+
+.Home {
+  flex: 1;
+  display: flex;
+}
+
+.Login {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Index {
+  padding: 10px;
+  width: 100%;
 }
