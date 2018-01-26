@@ -21,7 +21,7 @@ class Index extends Component {
     api(`
       query {
         getUser(id: "${auth.userId}") {
-          items(first: 10) {
+          items {
             edges {
               cursor
               node {
@@ -31,13 +31,6 @@ class Index extends Component {
                 createdAt
                 consumed
               }
-            }
-            aggregations {
-              count
-            }
-            pageInfo {
-              hasNextPage
-              hasPreviousPage
             }
           }
         }
